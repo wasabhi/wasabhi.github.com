@@ -3,7 +3,7 @@ layout: post
 title: "import not require"
 date: 2011-12-20 15:09
 comments: true
-categories: "ruby, rake"
+categories: [ruby, rake]
 ---
 
 Stumbled across something small but useful.  Writing rake files for a Ruby gem?
