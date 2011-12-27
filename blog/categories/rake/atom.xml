@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rake | trajectory]]></title>
+  <link href="http://wasabhi.github.com/blog/categories/rake/atom.xml" rel="self"/>
+  <link href="http://wasabhi.github.com/"/>
+  <updated>2011-12-27T19:12:22+11:00</updated>
+  <id>http://wasabhi.github.com/</id>
+  <author>
+    <name><![CDATA[Abhinav Keswani]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[import not require]]></title>
+    <link href="http://wasabhi.github.com/2011/12/import-not-require/"/>
+    <updated>2011-12-20T15:09:00+11:00</updated>
+    <id>http://wasabhi.github.com/2011/12/import-not-require</id>
+    <content type="html"><![CDATA[<p>Stumbled across something small but useful.  Writing rake files for a Ruby gem?
+Then consider arranging them using the following conventions:</p>
+
+<ul>
+<li>place them under lib/tasks</li>
+<li>ensure they all end with the .rake extension</li>
+</ul>
+
+
+<p>How to ensure that all your rake files under lib/tasks are available when you run a <code>rake -T</code>?</p>
+
+<p>Easy - put this into your Rakefile.</p>
+
+<p><code>ruby
+Dir.glob('lib/tasks/*.rake').each { |r| import r }
+</code></p>
+
+<p>Some things to note:</p>
+
+<ul>
+<li>the .rake extension means that you can't use require</li>
+<li>require works with files using the .rb extension</li>
+<li>import is your friend in this case</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

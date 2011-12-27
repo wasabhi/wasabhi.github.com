@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>trajectory</title>
+  <title>Customised redirect after sign in with devise - trajectory</title>
   <meta name="author" content="Abhinav Keswani">
 
   
-  <meta name="description" content="Stumbled across something small but useful. Writing rake files for a Ruby gem?
-Then consider arranging them using the following conventions: place &hellip;">
+  <meta name="description" content="Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ Then consider arranging them using the following conventions: place &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://wasabhi.github.com">
+  <link rel="canonical" href="http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -64,76 +63,12 @@ Then consider arranging them using the following conventions: place &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2011/12/import-not-require/">Import Not Require</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-20T15:09:00+11:00" pubdate data-updated="true">Dec 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Stumbled across something small but useful.  Writing rake files for a Ruby gem?
-Then consider arranging them using the following conventions:</p>
-
-<ul>
-<li>place them under lib/tasks</li>
-<li>ensure they all end with the .rake extension</li>
-</ul>
-
-
-<p>How to ensure that all your rake files under lib/tasks are available when you run a <code>rake -T</code>?</p>
-
-<p>Easy - put this into your Rakefile.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;lib/tasks/*.rake&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">r</span><span class="o">|</span> <span class="n">import</span> <span class="n">r</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Some things to note:</p>
-
-<ul>
-<li>the .rake extension means that you can&#8217;t use require</li>
-<li>require works with files using the .rb extension</li>
-<li>import is your friend in this case</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/12/customised-redirect-after-sign-in-with-devise/">Customised Redirect After Sign in With Devise</a></h1>
+      <h1 class="entry-title">Customised Redirect After Sign in With Devise</h1>
     
     
       <p class="meta">
@@ -156,7 +91,7 @@ Then consider arranging them using the following conventions:</p>
   </header>
 
 
-  <div class="entry-content"><p>Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours like, &#8220;Forgot Password?&#8221;.</p>
+<div class="entry-content"><p>Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours like, &#8220;Forgot Password?&#8221;.</p>
 
 <p>It took me a little while to find out how to redirect a devise user to a specific path after signing in, or registering (signing up) for an account.</p>
 
@@ -310,22 +245,16 @@ should redirect the user to a status_path.</p>
 
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/09/Two-Weeks-On-The-Road/">Two Brilliant Weeks on the Road</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Abhinav Keswani</span></span>
+
+      
 
 
 
@@ -337,47 +266,50 @@ should redirect the user to a status_path.</p>
   
 
 
-<time datetime="2011-09-10T22:21:00+10:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
-        
-      </p>
+<time datetime="2011-12-15T22:44:00+11:00" pubdate data-updated="true">Dec 15<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devise/'>devise</a>, <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>I just finished a two week trip to the US, spending most of my time in Boulder Colorado, and San Francisco.</p>
-
-<p>Most of the time in San Francisco was spent at Dreamforce meeting with the small, but growing group of developers who build bespoke applications that integrate with Salesforce.com.  The most notable part of this experience was the chance to actually meet in person so many people who I have talked to over skype or over email, or via pull requests on github.</p>
-
-<p>There&#8217;s really no substitute to meeting people in person, and I left San Francisco that much more in tune and in touch with the community.  I missed Metallica &#8230; yes &#8230; but um I saw a car that sends microblogs to its owner.  Dreamforce brought home to me the scale at which things happen in the US, and the kind of engagement and enthusiasm that people show towards their vocation.</p>
-
-<p>I then attended Rocky Mountain Ruby in Boulder, an experience that could not be more different than that of Dreamforce.  200 attendees, as opposed 45000.  A single track conference held in a lovely old theatre, as opposed to a smorgasboard of options held across multiple city blocks.  Both were fun and professionally constructive, but I really identified with and enjoyed the Ruby conference a little more.</p>
-
-<p>Delivering a superb event, Marty Haught ran the conference really well.  We were entertained, educated, watered, beered, and fed.  A really excellent conference.</p>
-
-<p>I have always had an affinity with Boulder, and I got to stick around for a week after the conference.  My friend Damien (friendly Frenchman based in Sydney) and I rode mountain bikes, exploring some awesome trails.  We sampled some awesome food and drank some really amazing boutique microbrew beer.  Get there, its a great town.  I am coming back for sure - perhaps to stay for a while.</p>
-
-<p>During the week, I met with about 7 or 8 businesses that are all creating something new.  Small companies, tech startups, with a small footprint and an audacious goal.  A significant observation about Boulder is that it is full of enterprising folk.  From Celestial Seasonings Tea, to Crocs, to some of the best little tech startups around.  Oh and I believe the US atomic clock lives in Boulder&#8230;sweet.</p>
-
-<p>Between the people, the tech, the trails, the beer, the food and the beer, I was really taken by the town.  My heartfelt thanks to those who made it such an awesome stay.  I hope that you guys will remember the dude from NZ that turned up, and know you&#8217;re always welcome out our way.</p>
-
-<p>Heading home, we made the mandatory pilgrimmage to REI (as all Antipodeans do), and visited a great friend of mine who lives near Denver.  A lovely evening of more fine company, food and you guessed it &#8230; microbrew beer.</p>
-
-<p>Sitting at SFO airport now, getting set to board the plane.  I&#8217;m dying to see my family - being away from them has been the toughest part of the journey, however I got to do my thing, and I reckon that our little family will be better off for it in the long term &#8230;</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/" data-via="wasabhi" data-counturl="http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/09/Two-Weeks-On-The-Road/" title="Previous Post: Two brilliant weeks on the road">&laquo; Two brilliant weeks on the road</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/12/import-not-require/" title="next Post: import not require">import not require &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -410,7 +342,7 @@ should redirect the user to a status_path.</p>
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/wasabhi">@wasabhi</a> on Github
@@ -440,7 +372,7 @@ should redirect the user to a status_path.</p>
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -467,6 +399,7 @@ should redirect the user to a status_path.</p>
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -481,7 +414,10 @@ should redirect the user to a status_path.</p>
       var disqus_shortname = 'wasabhi';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/';
+        var disqus_url = 'http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

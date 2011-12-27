@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>trajectory</title>
+  <meta name="author" content="Abhinav Keswani">
+
+  
+  <meta name="description" content="Today, I spent a lot of time cherry picking my way through a bunch of commits. Before explaining further - this is the scenario we were in. over &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wasabhi.github.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="trajectory" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">trajectory</a></h1>
+  
+    <h2>notes from the field...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wasabhi.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/02/GitCherryPicking/">Cherry Picking Commits With Git</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-09T22:17:00+11:00" pubdate data-updated="true">Feb 9<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today, I spent a lot of time <a href="http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html">cherry picking</a> my way through a bunch of commits.</p>
+
+<p>Before explaining further - this is the scenario we were in.</p>
+
+<ul>
+<li>over about 3 weeks we&#8217;ve had to vendor a Ruby gem so as to modify and extend it rapidly in our Rails app</li>
+<li>we&#8217;ve done this quickly and without tracking changes in a fork of the gem (bad!)</li>
+<li>we needed to contribute all our work back to the gem maintainer but we needed to carefully group related commits, and send meaningful pull requests</li>
+</ul>
+
+
+<p>So, after forking the gem in question and a cheeky bit of diffing we knew the all the differences between our vendorised gem and that of the fork.</p>
+
+<pre><code>diff -uNrw . our/app/vendor/gems/gem_name/ | less
+</code></pre>
+
+<p>We created a temp branch and applied all the diffs by simply copying over the entire gem recursively.</p>
+
+<pre><code>git checkout -b temp
+cp -r our/rails_app/vendor/gems/gem_name/ .
+</code></pre>
+
+<p>We ran all the tests in the gem, and gladly they passed, so we removed our vendor gem directory from our application - using a symbolic link instead pointing at the gem fork.  Then we ran all our tests in our application and they passed too - which is great.</p>
+
+<p>So at this point, the gem was still in the vendor/gems directory, however this pointed to a fork of the gem where many changes had been made.</p>
+
+<p>The next step was to commit or interactively add hunks of code from all the changes in the temp branch.</p>
+
+<pre><code>git commit -v file
+git add -i file
+</code></pre>
+
+<p>This created neatly separated commits of all changes in our temp branch.</p>
+
+<p>Then we checked out the master branch and compared the temp branch to the HEAD revision.  This showed us clearly the differences between the two branches.</p>
+
+<pre><code>git checkout master
+git diff HEAD..temp
+</code></pre>
+
+<p>So, we&#8217;ve got all our commits on a temp branch and these needed to be selectively added to new branches, allowing us to logically aggregate changes, and issue pull requests to the gem&#8217;s maintainer.</p>
+
+<p>So - first up create a new branch and then we started to cherry pick.</p>
+
+<pre><code>git checkout master
+git checkout -b new_set_of_commits_for_pull_request
+</code></pre>
+
+<p>With a list of SHAs generated from all commits on the temp branch we could tell what we needed to cherry pick.</p>
+
+<pre><code>git log --oneline temp
+</code></pre>
+
+<p>So applying these commits to a branch is easy - giving us a branch with a specified set of commits on it.</p>
+
+<pre><code>git cherry-pick 42f169a 9068c89 750684e d5a7ac8
+</code></pre>
+
+<p>Then we push this branch, and follow github&#8217;s amazing pull request procedure.</p>
+
+<pre><code>git push origin new_set_of_commits_for_pull_request
+</code></pre>
+
+<p>Once our changes were accepted (phew!) we created a remote pointing to the gem repo, and fetched the contents.  Then we tracked all upstream changes to this gem allowing us to merge back all upstream changes into our local master branch - using an intermediate &#8220;integrate&#8221; branch to test that all merges were fast-forwards.</p>
+
+<pre><code>git remote add gem_name &lt;insert repo&gt;
+git fetch gem_name
+git branch --track gem_name gem_name/master
+</code></pre>
+
+<p>Git is such a powerful SCM - it&#8217;ll take me a while to get my head around the possibilities.  For me, to write the above down is really important - it helps me to remember for next time!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/02/Accountability/">Accountability</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-07T22:15:00+11:00" pubdate data-updated="true">Feb 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So what would you do?  You&#8217;re riding home to see your 4 month old son and your lovely wife, in traffic and doing all the right things - obeying all the rules.</p>
+
+<p>The car next to you cuts hard across you, no indication, turning into a side street without being in a turning lane.</p>
+
+<p>You touch the side of the car and glance off at pace trying your best to correct and turn away from any obstacles, hit the curb and go flying over your bike as it lands on you while you skid and scrape your way along the hard footpath&#8230;</p>
+
+<p>Sort of like sliding along a cheesegrater at speed.  You bounce hard but you&#8217;re OK and you stand up quickly to assess the damage - you&#8217;re OK - this is amazing.</p>
+
+<p>Then the guy driving the car jumps out, and says, &#8220;I&#8217;m sorry, I made a late decision, didn&#8217;t check, didn&#8217;t indicate and this is all my fault - can I do anything to help?&#8221;.</p>
+
+<p>A motorcyclist comes running over after seeing everything and exclaims, &#8220;That was a serious hit mate are you OK? Do we need to call an ambulance?&#8221;.  I&#8217;m still standing, shaken and stirred and bleeding but &#8230; I&#8217;ve had worse falls and thankfully all is well.</p>
+
+<p>My reaction was not one of anger - this person openly apologises and claims responsibility for his actions, as opposed to the many others on the roads who would probably have just driven away.</p>
+
+<p>I almost felt awkward asking the guy to pay for damage to my gear, and my bike.</p>
+
+<p>Not the best thing to happen to me - I&#8217;m sore and I can&#8217;t sleep well because one side of my body is pretty banged up but I will heal, and he is genuinely sorry for this.</p>
+
+<p>I&#8217;m thankful for his approach, and I call him when I get home (I insisted on riding home) and let him know that things are fine.  I&#8217;m so glad to see my family.</p>
+
+<p>He will most certainly pay more attention, and I will ride more defensively given what is at stake.</p>
+
+<p>I&#8217;ll probably make a friend after this is all done.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/02/Technology-Agile-Corporate/">Technology Background: Agile Web Application Development in an Enterprise Environment</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-06T21:38:00+11:00" pubdate data-updated="true">Feb 6<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Continuing from my previous post about <a href="/2011/01/Milestones/">agile development in the corporate context</a>, I will describe the technology we used to be able to rapidly deliver web applications.
+To deliver 50 web applications in a year we needed some basic structures in place:</p>
+
+<ul>
+<li>An application framework which would allow us to rapidly create and maintain web apps, with in-built flexibility given ever changing requirements</li>
+<li>An underlying infrastructure that would serve 150 apps (suggesting a 3 year lifespan)</li>
+<li>A modicum of secure controls over our application environment and infrastructure so as to autonomously deliver our work</li>
+<li>Automation</li>
+<li>More automation</li>
+</ul>
+
+
+<p>We chose to use the following:</p>
+
+<ul>
+<li>The <a href="http://www.symfony.org">Symfony MVC framework</a>, and somewhat confusingly, the <a href="http://seamframework.org">JBoss Seam framework</a> [1]</li>
+<li><a href="http://www.redhat.com/rhel">Red Hat Enterprise Linux</a> as it was our corporate standard Linux - to create dev, test and prod environments</li>
+<li><a href="http://httpd.apache.org">Apache</a>, <a href="http://www.mysql.com">MySQL</a> to round out web serving and the database of choice</li>
+<li>A small arsenal of shell and perl combined with clever sudo access for non-root users to give thorough and secure control over these hosts</li>
+<li>Atlassian <a href="http://www.atlassian.com/software/jira/">Jira</a> and <a href="http://www.atlassian.com/software/confluence">Confluence</a> for issue tracking and documentation respectively.</li>
+<li>Atlassian <a href="http://www.atlassian.com/software/fisheye/">Fisheye</a> and <a href="http://www.atlassian.com/software/crucible/">Crucible</a> plus Subversion for development peer review and source code management respectively.</li>
+<li><a href="http://socialcast.com">Socialcast</a> for inside the firewall microblogging and collaboration</li>
+</ul>
+
+
+<p>With all of the above, we were able to manage the delivery of an entire web application from concept to reality without the need to engage any other IT teams.  Well, that&#8217;s not entirely true - we needed to create new URLs for these apps, so we&#8217;d need to request a new CNAME record which would take sometimes 2 weeks&#8230;(!!!)&#8230;</p>
+
+<p>We quickly realised that there were common components being delivered repeatedly - such as the authentication layer in these applications needed to authenticate against Active Directory.  Or, that employee lookups were being performed against that corporate directory.  We quickly developed reusable modules of code that would allow any app to have these common functions without needing to write any code.Knowing what I know now, I would humbly suggest a few changes to the above stack - but more of that will be covered later &#8230;</p>
+
+<p>I discussed these structures at a recent cloudcamp in Auckland - suggesting that a PaaS approach to deployment scalable web apps would be ideal for this team, however venturing outside the firewall - especially on cloud platforms is a pretty big ask for a somewhat conservative company.</p>
+
+<p>[1] With all due respect, we included Java in our stack just to appease a few people who felt there is no other choice for the &#8220;Enterprise&#8221;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/12/import-not-require/">import not require</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/12/customised-redirect-after-sign-in-with-devise/">Customised redirect after sign in with devise</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/09/Two-Weeks-On-The-Road/">Two brilliant weeks on the road</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/02/GitCherryPicking/">Cherry picking commits with git</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/02/Accountability/">Accountability</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/wasabhi">@wasabhi</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'wasabhi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("wasabhi", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/wasabhi" class="twitter-follow-button" data-show-count="false">Follow @wasabhi</a>
+  
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/abhinavk?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/abhinavk">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Abhinav Keswani -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'wasabhi';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
