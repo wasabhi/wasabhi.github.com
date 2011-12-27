@@ -9,7 +9,7 @@
   <meta name="author" content="Abhinav Keswani">
 
   
-  <meta name="description" content="Today, I spent a lot of time cherry picking my way through a bunch of commits. Before explaining further - this is the scenario we were in. over &hellip;">
+  <meta name="description" content="I just finished a two week trip to the US, spending most of my time in Boulder Colorado, and San Francisco. Most of the time in San Francisco was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/09/Two-Weeks-On-The-Road/">Two Brilliant Weeks on the Road</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-10T22:21:00+10:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just finished a two week trip to the US, spending most of my time in Boulder Colorado, and San Francisco.</p>
+
+<p>Most of the time in San Francisco was spent at Dreamforce meeting with the small, but growing group of developers who build bespoke applications that integrate with Salesforce.com.  The most notable part of this experience was the chance to actually meet in person so many people who I have talked to over skype or over email, or via pull requests on github.</p>
+
+<p>There&#8217;s really no substitute to meeting people in person, and I left San Francisco that much more in tune and in touch with the community.  I missed Metallica &#8230; yes &#8230; but um I saw a car that sends microblogs to its owner.  Dreamforce brought home to me the scale at which things happen in the US, and the kind of engagement and enthusiasm that people show towards their vocation.</p>
+
+<p>I then attended Rocky Mountain Ruby in Boulder, an experience that could not be more different than that of Dreamforce.  200 attendees, as opposed 45000.  A single track conference held in a lovely old theatre, as opposed to a smorgasboard of options held across multiple city blocks.  Both were fun and professionally constructive, but I really identified with and enjoyed the Ruby conference a little more.</p>
+
+<p>Delivering a superb event, Marty Haught ran the conference really well.  We were entertained, educated, watered, beered, and fed.  A really excellent conference.</p>
+
+<p>I have always had an affinity with Boulder, and I got to stick around for a week after the conference.  My friend Damien (friendly Frenchman based in Sydney) and I rode mountain bikes, exploring some awesome trails.  We sampled some awesome food and drank some really amazing boutique microbrew beer.  Get there, its a great town.  I am coming back for sure - perhaps to stay for a while.</p>
+
+<p>During the week, I met with about 7 or 8 businesses that are all creating something new.  Small companies, tech startups, with a small footprint and an audacious goal.  A significant observation about Boulder is that it is full of enterprising folk.  From Celestial Seasonings Tea, to Crocs, to some of the best little tech startups around.  Oh and I believe the US atomic clock lives in Boulder&#8230;sweet.</p>
+
+<p>Between the people, the tech, the trails, the beer, the food and the beer, I was really taken by the town.  My heartfelt thanks to those who made it such an awesome stay.  I hope that you guys will remember the dude from NZ that turned up, and know you&#8217;re always welcome out our way.</p>
+
+<p>Heading home, we made the mandatory pilgrimmage to REI (as all Antipodeans do), and visited a great friend of mine who lives near Denver.  A lovely evening of more fine company, food and you guessed it &#8230; microbrew beer.</p>
+
+<p>Sitting at SFO airport now, getting set to board the plane.  I&#8217;m dying to see my family - being away from them has been the toughest part of the journey, however I got to do my thing, and I reckon that our little family will be better off for it in the long term &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -230,73 +284,6 @@ git branch --track gem_name gem_name/master
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/02/Technology-Agile-Corporate/">Technology Background: Agile Web Application Development in an Enterprise Environment</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-06T21:38:00+11:00" pubdate data-updated="true">Feb 6<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Continuing from my previous post about <a href="/2011/01/Milestones/">agile development in the corporate context</a>, I will describe the technology we used to be able to rapidly deliver web applications.
-To deliver 50 web applications in a year we needed some basic structures in place:</p>
-
-<ul>
-<li>An application framework which would allow us to rapidly create and maintain web apps, with in-built flexibility given ever changing requirements</li>
-<li>An underlying infrastructure that would serve 150 apps (suggesting a 3 year lifespan)</li>
-<li>A modicum of secure controls over our application environment and infrastructure so as to autonomously deliver our work</li>
-<li>Automation</li>
-<li>More automation</li>
-</ul>
-
-
-<p>We chose to use the following:</p>
-
-<ul>
-<li>The <a href="http://www.symfony.org">Symfony MVC framework</a>, and somewhat confusingly, the <a href="http://seamframework.org">JBoss Seam framework</a> [1]</li>
-<li><a href="http://www.redhat.com/rhel">Red Hat Enterprise Linux</a> as it was our corporate standard Linux - to create dev, test and prod environments</li>
-<li><a href="http://httpd.apache.org">Apache</a>, <a href="http://www.mysql.com">MySQL</a> to round out web serving and the database of choice</li>
-<li>A small arsenal of shell and perl combined with clever sudo access for non-root users to give thorough and secure control over these hosts</li>
-<li>Atlassian <a href="http://www.atlassian.com/software/jira/">Jira</a> and <a href="http://www.atlassian.com/software/confluence">Confluence</a> for issue tracking and documentation respectively.</li>
-<li>Atlassian <a href="http://www.atlassian.com/software/fisheye/">Fisheye</a> and <a href="http://www.atlassian.com/software/crucible/">Crucible</a> plus Subversion for development peer review and source code management respectively.</li>
-<li><a href="http://socialcast.com">Socialcast</a> for inside the firewall microblogging and collaboration</li>
-</ul>
-
-
-<p>With all of the above, we were able to manage the delivery of an entire web application from concept to reality without the need to engage any other IT teams.  Well, that&#8217;s not entirely true - we needed to create new URLs for these apps, so we&#8217;d need to request a new CNAME record which would take sometimes 2 weeks&#8230;(!!!)&#8230;</p>
-
-<p>We quickly realised that there were common components being delivered repeatedly - such as the authentication layer in these applications needed to authenticate against Active Directory.  Or, that employee lookups were being performed against that corporate directory.  We quickly developed reusable modules of code that would allow any app to have these common functions without needing to write any code.Knowing what I know now, I would humbly suggest a few changes to the above stack - but more of that will be covered later &#8230;</p>
-
-<p>I discussed these structures at a recent cloudcamp in Auckland - suggesting that a PaaS approach to deployment scalable web apps would be ideal for this team, however venturing outside the firewall - especially on cloud platforms is a pretty big ask for a somewhat conservative company.</p>
-
-<p>[1] With all due respect, we included Java in our stack just to appease a few people who felt there is no other choice for the &#8220;Enterprise&#8221;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -314,6 +301,10 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/map-multiple-commands-in-vim/">Map multiple commands in Vim</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/import-not-require/">import not require</a>
       </li>
     
@@ -327,10 +318,6 @@ To deliver 50 web applications in a year we needed some basic structures in plac
     
       <li class="post">
         <a href="/2011/02/GitCherryPicking/">Cherry picking commits with git</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/02/Accountability/">Accountability</a>
       </li>
     
   </ul>

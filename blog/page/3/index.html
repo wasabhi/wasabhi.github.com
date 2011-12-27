@@ -9,7 +9,7 @@
   <meta name="author" content="Abhinav Keswani">
 
   
-  <meta name="description" content="For the last three years, I worked for an Australian Telco - having been a founding member of a tiny team tasked with the delivery of short, sweet &hellip;">
+  <meta name="description" content="Continuing from my previous post about agile development in the corporate context, I will describe the technology we used to be able to rapidly &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/02/Technology-Agile-Corporate/">Technology Background: Agile Web Application Development in an Enterprise Environment</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-06T21:38:00+11:00" pubdate data-updated="true">Feb 6<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Continuing from my previous post about <a href="/2011/01/Milestones/">agile development in the corporate context</a>, I will describe the technology we used to be able to rapidly deliver web applications.
+To deliver 50 web applications in a year we needed some basic structures in place:</p>
+
+<ul>
+<li>An application framework which would allow us to rapidly create and maintain web apps, with in-built flexibility given ever changing requirements</li>
+<li>An underlying infrastructure that would serve 150 apps (suggesting a 3 year lifespan)</li>
+<li>A modicum of secure controls over our application environment and infrastructure so as to autonomously deliver our work</li>
+<li>Automation</li>
+<li>More automation</li>
+</ul>
+
+
+<p>We chose to use the following:</p>
+
+<ul>
+<li>The <a href="http://www.symfony.org">Symfony MVC framework</a>, and somewhat confusingly, the <a href="http://seamframework.org">JBoss Seam framework</a> [1]</li>
+<li><a href="http://www.redhat.com/rhel">Red Hat Enterprise Linux</a> as it was our corporate standard Linux - to create dev, test and prod environments</li>
+<li><a href="http://httpd.apache.org">Apache</a>, <a href="http://www.mysql.com">MySQL</a> to round out web serving and the database of choice</li>
+<li>A small arsenal of shell and perl combined with clever sudo access for non-root users to give thorough and secure control over these hosts</li>
+<li>Atlassian <a href="http://www.atlassian.com/software/jira/">Jira</a> and <a href="http://www.atlassian.com/software/confluence">Confluence</a> for issue tracking and documentation respectively.</li>
+<li>Atlassian <a href="http://www.atlassian.com/software/fisheye/">Fisheye</a> and <a href="http://www.atlassian.com/software/crucible/">Crucible</a> plus Subversion for development peer review and source code management respectively.</li>
+<li><a href="http://socialcast.com">Socialcast</a> for inside the firewall microblogging and collaboration</li>
+</ul>
+
+
+<p>With all of the above, we were able to manage the delivery of an entire web application from concept to reality without the need to engage any other IT teams.  Well, that&#8217;s not entirely true - we needed to create new URLs for these apps, so we&#8217;d need to request a new CNAME record which would take sometimes 2 weeks&#8230;(!!!)&#8230;</p>
+
+<p>We quickly realised that there were common components being delivered repeatedly - such as the authentication layer in these applications needed to authenticate against Active Directory.  Or, that employee lookups were being performed against that corporate directory.  We quickly developed reusable modules of code that would allow any app to have these common functions without needing to write any code.Knowing what I know now, I would humbly suggest a few changes to the above stack - but more of that will be covered later &#8230;</p>
+
+<p>I discussed these structures at a recent cloudcamp in Auckland - suggesting that a PaaS approach to deployment scalable web apps would be ideal for this team, however venturing outside the firewall - especially on cloud platforms is a pretty big ask for a somewhat conservative company.</p>
+
+<p>[1] With all due respect, we included Java in our stack just to appease a few people who felt there is no other choice for the &#8220;Enterprise&#8221;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -222,6 +289,10 @@ The &#8220;free&#8221; nature of the service was quickly pounced upon and some a
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/map-multiple-commands-in-vim/">Map multiple commands in Vim</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/import-not-require/">import not require</a>
       </li>
     
@@ -235,10 +306,6 @@ The &#8220;free&#8221; nature of the service was quickly pounced upon and some a
     
       <li class="post">
         <a href="/2011/02/GitCherryPicking/">Cherry picking commits with git</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/02/Accountability/">Accountability</a>
       </li>
     
   </ul>

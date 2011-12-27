@@ -32,7 +32,11 @@
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/12/import-not-require/</loc>
-        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
+        <lastmod>2011-12-27T19:21:58+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim/</loc>
+        <lastmod>2011-12-27T19:20:48+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/about/</loc>
@@ -40,10 +44,10 @@
     </url>
     <url>
         <loc>http://wasabhi.github.com/blog/archives/</loc>
-        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
+        <lastmod>2011-12-27T19:21:58+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/</loc>
-        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
+        <lastmod>2011-12-27T19:21:58+11:00</lastmod>
     </url>
 </urlset>

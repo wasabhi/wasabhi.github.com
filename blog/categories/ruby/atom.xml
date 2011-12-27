@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ruby, | trajectory]]></title>
-  <link href="http://wasabhi.github.com/blog/categories/ruby-/atom.xml" rel="self"/>
+  <title><![CDATA[Category: ruby | trajectory]]></title>
+  <link href="http://wasabhi.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2011-12-27T19:12:22+11:00</updated>
+  <updated>2011-12-27T19:22:06+11:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Map multiple commands in Vim]]></title>
+    <link href="http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim/"/>
+    <updated>2011-12-27T19:20:00+11:00</updated>
+    <id>http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim</id>
+    <content type="html"><![CDATA[<p>I've been learning a lot of new and subtle things about the Ruby language by
+working through Ruby Koans.  Things get a little tedious as you work through
+each step, having to run <code>ruby path_to_enlightenment.rb</code> every time you want to
+assess your progress.</p>
+
+<p>I use the vim editor, and to speed things up a little I mapped this little
+command to write the file I am working with and run the above command.</p>
+
+<p>``` vim</p>
+
+<pre><code>:map ,r :w\|ruby path_to_enlightenment.rb
+</code></pre>
+
+<p>```</p>
+
+<p>Nice - while working on one of the Ruby Koans, this allows me to use two quick keystrokes ',r' to assess my progress.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[import not require]]></title>
