@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | trajectory]]></title>
   <link href="http://wasabhi.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2011-12-27T19:22:06+11:00</updated>
+  <updated>2012-01-20T21:45:59+13:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Cherry picking commits with git]]></title>
     <link href="http://wasabhi.github.com/2011/02/GitCherryPicking/"/>
-    <updated>2011-02-09T22:17:00+11:00</updated>
+    <updated>2011-02-09T22:17:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/02/GitCherryPicking</id>
     <content type="html"><![CDATA[<p>Today, I spent a lot of time <a href="http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html">cherry picking</a> my way through a bunch of commits.</p>
 

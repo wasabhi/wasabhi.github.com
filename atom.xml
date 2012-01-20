@@ -4,7 +4,7 @@
   <title><![CDATA[trajectory]]></title>
   <link href="http://wasabhi.github.com/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2011-12-27T19:22:06+11:00</updated>
+  <updated>2012-01-20T21:45:59+13:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Map multiple commands in Vim]]></title>
     <link href="http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim/"/>
-    <updated>2011-12-27T19:20:00+11:00</updated>
+    <updated>2011-12-27T19:20:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim</id>
     <content type="html"><![CDATA[<p>I&#8217;ve been learning a lot of new and subtle things about the Ruby language by
 working through Ruby Koans.  Things get a little tedious as you work through
@@ -27,7 +27,7 @@ assess your progress.</p>
 command to write the file I am working with and run the above command.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>map <span class="p">,</span><span class="k">r</span> :<span class="k">w</span>\<span class="p">|</span><span class="k">ruby</span> path_to_enlightenment.rb
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>map <span class="p">,</span><span class="k">r</span> :<span class="k">w</span>\<span class="p">|!</span><span class="k">ruby</span> path_to_enlightenment.rb<span class="p">&lt;</span>CR<span class="p">&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -38,7 +38,7 @@ command to write the file I am working with and run the above command.</p>
   <entry>
     <title type="html"><![CDATA[import not require]]></title>
     <link href="http://wasabhi.github.com/2011/12/import-not-require/"/>
-    <updated>2011-12-20T15:09:00+11:00</updated>
+    <updated>2011-12-20T15:09:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/12/import-not-require</id>
     <content type="html"><![CDATA[<p>Stumbled across something small but useful.  Writing rake files for a Ruby gem?
 Then consider arranging them using the following conventions:</p>
@@ -72,7 +72,7 @@ Then consider arranging them using the following conventions:</p>
   <entry>
     <title type="html"><![CDATA[Customised redirect after sign in with devise]]></title>
     <link href="http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/"/>
-    <updated>2011-12-15T22:44:00+11:00</updated>
+    <updated>2011-12-15T22:44:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise</id>
     <content type="html"><![CDATA[<p>Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours like, &#8220;Forgot Password?&#8221;.</p>
 
@@ -233,7 +233,7 @@ should redirect the user to a status_path.</p>
   <entry>
     <title type="html"><![CDATA[Two brilliant weeks on the road]]></title>
     <link href="http://wasabhi.github.com/2011/09/Two-Weeks-On-The-Road/"/>
-    <updated>2011-09-10T22:21:00+10:00</updated>
+    <updated>2011-09-10T22:21:00+12:00</updated>
     <id>http://wasabhi.github.com/2011/09/Two-Weeks-On-The-Road</id>
     <content type="html"><![CDATA[<p>I just finished a two week trip to the US, spending most of my time in Boulder Colorado, and San Francisco.</p>
 
@@ -260,7 +260,7 @@ should redirect the user to a status_path.</p>
   <entry>
     <title type="html"><![CDATA[Cherry picking commits with git]]></title>
     <link href="http://wasabhi.github.com/2011/02/GitCherryPicking/"/>
-    <updated>2011-02-09T22:17:00+11:00</updated>
+    <updated>2011-02-09T22:17:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/02/GitCherryPicking</id>
     <content type="html"><![CDATA[<p>Today, I spent a lot of time <a href="http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html">cherry picking</a> my way through a bunch of commits.</p>
 
@@ -339,7 +339,7 @@ git branch --track gem_name gem_name/master
   <entry>
     <title type="html"><![CDATA[Accountability]]></title>
     <link href="http://wasabhi.github.com/2011/02/Accountability/"/>
-    <updated>2011-02-07T22:15:00+11:00</updated>
+    <updated>2011-02-07T22:15:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/02/Accountability</id>
     <content type="html"><![CDATA[<p>So what would you do?  You&#8217;re riding home to see your 4 month old son and your lovely wife, in traffic and doing all the right things - obeying all the rules.</p>
 
@@ -370,7 +370,7 @@ git branch --track gem_name gem_name/master
   <entry>
     <title type="html"><![CDATA[Technology Background: Agile web application development in an Enterprise environment]]></title>
     <link href="http://wasabhi.github.com/2011/02/Technology-Agile-Corporate/"/>
-    <updated>2011-02-06T21:38:00+11:00</updated>
+    <updated>2011-02-06T21:38:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/02/Technology-Agile-Corporate</id>
     <content type="html"><![CDATA[<p>Continuing from my previous post about <a href="http://wasabhi.github.com/2011/01/Milestones/">agile development in the corporate context</a>, I will describe the technology we used to be able to rapidly deliver web applications.
 To deliver 50 web applications in a year we needed some basic structures in place:</p>
@@ -410,7 +410,7 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <entry>
     <title type="html"><![CDATA[Milestones]]></title>
     <link href="http://wasabhi.github.com/2011/02/Milestones/"/>
-    <updated>2011-02-06T21:37:00+11:00</updated>
+    <updated>2011-02-06T21:37:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/02/Milestones</id>
     <content type="html"><![CDATA[<p>For the last three years, I worked for an Australian Telco - having been a founding member of a tiny team tasked with the delivery of short, sweet web apps that can be delivered quickly, and will resolve &#8220;low hanging fruit&#8221; business problems.  The team was created to rapidly respond to smaller business problems that were often overlooked, or subject to inappropriate costs as they were forced through a large project lifecycle.</p>
 
@@ -466,7 +466,7 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <entry>
     <title type="html"><![CDATA[Business Justification: Agile web application development in an Enterprise environment]]></title>
     <link href="http://wasabhi.github.com/2011/02/Agile-Corporate/"/>
-    <updated>2011-02-06T21:21:00+11:00</updated>
+    <updated>2011-02-06T21:21:00+13:00</updated>
     <id>http://wasabhi.github.com/2011/02/Agile-Corporate</id>
     <content type="html"><![CDATA[<p>Continuing from my previous post about <a href="http://wasabhi.github.com/2011/01/Milestones/">agile development in the corporate context</a>, I will point out the ways in which the team was structured and backed financially - in the context of the goals that were set for us.</p>
 
