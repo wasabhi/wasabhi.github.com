@@ -15,7 +15,7 @@ I use the vim editor, and to speed things up a little I mapped this little
 command to write the file I am working with and run the above command.
 
 ``` vim
-    :map ,r :w\|ruby path_to_enlightenment.rb
+    :map ,r :w\|!ruby path_to_enlightenment.rb<CR>
 ```
 
 Nice - while working on one of the Ruby Koans, this allows me to use two quick keystrokes ',r' to assess my progress.
