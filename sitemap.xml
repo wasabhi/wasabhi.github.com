@@ -2,52 +2,56 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://wasabhi.github.com/2011/02/Agile-Corporate/</loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/02/Milestones/</loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/02/Technology-Agile-Corporate/</loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/02/Accountability/</loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/02/GitCherryPicking/</loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/09/Two-Weeks-On-The-Road/</loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>
             http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/
         </loc>
-        <lastmod>2011-12-27T21:02:55+13:00</lastmod>
+        <lastmod>2011-12-27T19:02:55+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/12/import-not-require/</loc>
-        <lastmod>2011-12-27T21:21:58+13:00</lastmod>
+        <lastmod>2011-12-27T19:21:58+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim/</loc>
-        <lastmod>2012-01-20T21:45:46+13:00</lastmod>
+        <lastmod>2012-01-20T19:45:46+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://wasabhi.github.com/2013/01/running/</loc>
+        <lastmod>2013-01-01T22:56:36+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/about/</loc>
-        <lastmod>2011-12-27T20:57:37+13:00</lastmod>
+        <lastmod>2011-12-27T18:57:37+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/blog/archives/</loc>
-        <lastmod>2012-01-20T21:45:46+13:00</lastmod>
+        <lastmod>2013-01-01T22:56:36+11:00</lastmod>
     </url>
     <url>
         <loc>http://wasabhi.github.com/</loc>
-        <lastmod>2012-01-20T21:45:46+13:00</lastmod>
+        <lastmod>2013-01-01T22:56:36+11:00</lastmod>
     </url>
 </urlset>

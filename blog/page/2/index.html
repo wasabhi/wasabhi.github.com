@@ -9,7 +9,7 @@
   <meta name="author" content="Abhinav Keswani">
 
   
-  <meta name="description" content="I just finished a two week trip to the US, spending most of my time in Boulder Colorado, and San Francisco. Most of the time in San Francisco was &hellip;">
+  <meta name="description" content="Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,194 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2011/12/customised-redirect-after-sign-in-with-devise/">Customised Redirect After Sign in With Devise</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-15T22:44:00+11:00" pubdate data-updated="true">Dec 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours like, &#8220;Forgot Password?&#8221;.</p>
+
+<p>It took me a little while to find out how to redirect a devise user to a specific path after signing in, or registering (signing up) for an account.</p>
+
+<p>The point of the exercise, is to be able to create a your own registration flow which doesn&#8217;t correspond to the usual/normal approach adopted by devise.</p>
+
+<p>Typically, a registration flow in devise is:</p>
+
+<ul>
+<li>sign up with an email address</li>
+<li>you&#8217;re sent a confirmation email, and cannot progress until you:</li>
+<li>follow the confirm link in the email, where you are prompted to:</li>
+<li>set a password and then you&#8217;re in!</li>
+</ul>
+
+
+<p>I wanted to create a different series of steps</p>
+
+<ul>
+<li>sign up with an email address</li>
+<li>you&#8217;re sent a confirmation email, and then:</li>
+<li>in parallel progress to other steps needed to subscribe for a service (eg payment)</li>
+<li>you can follow the confirm link in the email at any time</li>
+</ul>
+
+
+<p>So, first we should write a test:</p>
+
+<figure class='code'><figcaption><span>rspec registrations controller test</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@request</span><span class="o">.</span><span class="n">env</span><span class="o">[</span><span class="s1">&#39;devise.mapping&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="no">Devise</span><span class="o">.</span><span class="n">mappings</span><span class="o">[</span><span class="ss">:user</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">describe</span> <span class="s2">&quot;when I register&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should redirect to a payment page&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:user</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s1">&#39;some@email.com&#39;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">response</span><span class="o">.</span><span class="n">should</span> <span class="n">redirect_to</span><span class="p">(</span><span class="n">payment_path</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The following block achieves a simple yet powerful thing. It loads up the devise
+scope for the user into the request, allowing routes and devise modules to be
+available for the test to run properly.  Without this, the devise routes are not
+available, and the test fails with a message asking whether a devise_scope for
+the user has been set at all in the routes.</p>
+
+<figure class='code'><figcaption><span>load the devise scope for the user</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@request</span><span class="o">.</span><span class="n">env</span><span class="o">[</span><span class="s1">&#39;devise.mapping&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="no">Devise</span><span class="o">.</span><span class="n">mappings</span><span class="o">[</span><span class="ss">:user</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The remainder of the test posts to the create action of the registrations
+controller, after which assert that the response should be a redirect to the
+required payment path.</p>
+
+<p>To make the test pass:</p>
+
+<figure class='code'><figcaption><span>overide a specific method in the registrations controller</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">RegistrationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">RegistrationsController</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">protected</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">after_inactive_sign_up_path_for</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">payment_path</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This method is useful for redirecting users who have registered, and have not
+yet confirmed their account.</p>
+
+<p>Once they have confirmed their account, should you choose to redirect them to a
+specific path, then again write this test:</p>
+
+<figure class='code'><figcaption><span>rspec confirmations controller test</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@request</span><span class="o">.</span><span class="n">env</span><span class="o">[</span><span class="s1">&#39;devise.mapping&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="no">Devise</span><span class="o">.</span><span class="n">mappings</span><span class="o">[</span><span class="ss">:user</span><span class="o">]</span>
+</span><span class='line'>  <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">create!</span> <span class="no">Factory</span><span class="o">.</span><span class="n">attributes_for</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">describe</span> <span class="s2">&quot;when I confirm my account&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should redirect to a status page&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">post</span> <span class="ss">:confirm_account</span><span class="p">,</span>
+</span><span class='line'>         <span class="ss">:user</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:confirmation_token</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">confirmation_token</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">response</span><span class="o">.</span><span class="n">should</span> <span class="n">redirect_to</span><span class="p">(</span><span class="n">status_path</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;m using FactoryGirl above to create valid attributes for a user.  I set up the
+devise scope just as before, and then I post the confirmation token to the
+confirm_account action of the confirmations controller asserting that this
+should redirect the user to a status_path.</p>
+
+<p>To achieve this I modify the confirmations controller thus:</p>
+
+<figure class='code'><figcaption><span>confirmations controller</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ConfirmationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">ConfirmationsController</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">[</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="n">some</span> <span class="nb">methods</span> <span class="n">removed</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">protected</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">after_sign_in_path_for</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">status_path</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2011/09/Two-Weeks-On-The-Road/">Two Brilliant Weeks on the Road</a></h1>
     
     
@@ -87,7 +275,7 @@
   
 
 
-<time datetime="2011-09-10T22:21:00+12:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
+<time datetime="2011-09-10T22:21:00+10:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
         
       </p>
     
@@ -141,7 +329,7 @@
   
 
 
-<time datetime="2011-02-09T22:17:00+13:00" pubdate data-updated="true">Feb 9<span>th</span>, 2011</time>
+<time datetime="2011-02-09T22:17:00+11:00" pubdate data-updated="true">Feb 9<span>th</span>, 2011</time>
         
       </p>
     
@@ -226,64 +414,6 @@ git branch --track gem_name gem_name/master
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/02/Accountability/">Accountability</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-07T22:15:00+13:00" pubdate data-updated="true">Feb 7<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So what would you do?  You&#8217;re riding home to see your 4 month old son and your lovely wife, in traffic and doing all the right things - obeying all the rules.</p>
-
-<p>The car next to you cuts hard across you, no indication, turning into a side street without being in a turning lane.</p>
-
-<p>You touch the side of the car and glance off at pace trying your best to correct and turn away from any obstacles, hit the curb and go flying over your bike as it lands on you while you skid and scrape your way along the hard footpath&#8230;</p>
-
-<p>Sort of like sliding along a cheesegrater at speed.  You bounce hard but you&#8217;re OK and you stand up quickly to assess the damage - you&#8217;re OK - this is amazing.</p>
-
-<p>Then the guy driving the car jumps out, and says, &#8220;I&#8217;m sorry, I made a late decision, didn&#8217;t check, didn&#8217;t indicate and this is all my fault - can I do anything to help?&#8221;.</p>
-
-<p>A motorcyclist comes running over after seeing everything and exclaims, &#8220;That was a serious hit mate are you OK? Do we need to call an ambulance?&#8221;.  I&#8217;m still standing, shaken and stirred and bleeding but &#8230; I&#8217;ve had worse falls and thankfully all is well.</p>
-
-<p>My reaction was not one of anger - this person openly apologises and claims responsibility for his actions, as opposed to the many others on the roads who would probably have just driven away.</p>
-
-<p>I almost felt awkward asking the guy to pay for damage to my gear, and my bike.</p>
-
-<p>Not the best thing to happen to me - I&#8217;m sore and I can&#8217;t sleep well because one side of my body is pretty banged up but I will heal, and he is genuinely sorry for this.</p>
-
-<p>I&#8217;m thankful for his approach, and I call him when I get home (I insisted on riding home) and let him know that things are fine.  I&#8217;m so glad to see my family.</p>
-
-<p>He will most certainly pay more attention, and I will ride more defensively given what is at stake.</p>
-
-<p>I&#8217;ll probably make a friend after this is all done.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -301,6 +431,10 @@ git branch --track gem_name gem_name/master
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/01/running/">Running man</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/map-multiple-commands-in-vim/">Map multiple commands in Vim</a>
       </li>
     
@@ -314,10 +448,6 @@ git branch --track gem_name gem_name/master
     
       <li class="post">
         <a href="/2011/09/Two-Weeks-On-The-Road/">Two brilliant weeks on the road</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/02/GitCherryPicking/">Cherry picking commits with git</a>
       </li>
     
   </ul>
@@ -370,13 +500,6 @@ git branch --track gem_name gem_name/master
 </section>
 
 
-<section>
-  <h1>On Delicious</h1>
-  <div id="delicious"></div>
-  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/abhinavk?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
-  <p><a href="http://delicious.com/abhinavk">My Delicious Bookmarks &raquo;</a></p>
-</section>
-
 
 
 
@@ -386,7 +509,7 @@ git branch --track gem_name gem_name/master
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Abhinav Keswani -
+  Copyright &copy; 2013 - Abhinav Keswani -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | trajectory]]></title>
   <link href="http://wasabhi.github.com/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2012-01-20T21:45:59+13:00</updated>
+  <updated>2013-01-01T23:04:58+11:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Technology Background: Agile web application development in an Enterprise environment]]></title>
     <link href="http://wasabhi.github.com/2011/02/Technology-Agile-Corporate/"/>
-    <updated>2011-02-06T21:38:00+13:00</updated>
+    <updated>2011-02-06T21:38:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Technology-Agile-Corporate</id>
     <content type="html"><![CDATA[<p>Continuing from my previous post about <a href="/2011/01/Milestones/">agile development in the corporate context</a>, I will describe the technology we used to be able to rapidly deliver web applications.
 To deliver 50 web applications in a year we needed some basic structures in place:</p>
@@ -56,7 +56,7 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <entry>
     <title type="html"><![CDATA[Milestones]]></title>
     <link href="http://wasabhi.github.com/2011/02/Milestones/"/>
-    <updated>2011-02-06T21:37:00+13:00</updated>
+    <updated>2011-02-06T21:37:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Milestones</id>
     <content type="html"><![CDATA[<p>For the last three years, I worked for an Australian Telco - having been a founding member of a tiny team tasked with the delivery of short, sweet web apps that can be delivered quickly, and will resolve "low hanging fruit" business problems.  The team was created to rapidly respond to smaller business problems that were often overlooked, or subject to inappropriate costs as they were forced through a large project lifecycle.</p>
 
@@ -112,7 +112,7 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <entry>
     <title type="html"><![CDATA[Business Justification: Agile web application development in an Enterprise environment]]></title>
     <link href="http://wasabhi.github.com/2011/02/Agile-Corporate/"/>
-    <updated>2011-02-06T21:21:00+13:00</updated>
+    <updated>2011-02-06T21:21:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Agile-Corporate</id>
     <content type="html"><![CDATA[<p>Continuing from my previous post about <a href="/2011/01/Milestones/">agile development in the corporate context</a>, I will point out the ways in which the team was structured and backed financially - in the context of the goals that were set for us.</p>
 

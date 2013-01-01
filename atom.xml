@@ -4,7 +4,7 @@
   <title><![CDATA[trajectory]]></title>
   <link href="http://wasabhi.github.com/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2012-01-20T21:45:59+13:00</updated>
+  <updated>2013-01-01T23:04:58+11:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -14,9 +14,113 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Running man]]></title>
+    <link href="http://wasabhi.github.com/2013/01/running/"/>
+    <updated>2013-01-01T20:07:00+11:00</updated>
+    <id>http://wasabhi.github.com/2013/01/running</id>
+    <content type="html"><![CDATA[<p>I remember the first time someone asked me to run just for the sake of it.  I
+was 8 years old, having just migrated to Sydney from Mumbai with my family.  It
+was my first Phys Ed session, at my first week of school in a totally new place
+and completely new culture. I had to run around the school oval.  Firstly I was
+amazed that the school had a grassy oval, and then I was wondering how the hell
+I was meant to get around the entire thing.</p>
+
+<p>Suffice to say, although I suffered plenty on that very first lap, I soon
+realised my natural propensity as a runner and then climber.  Lean (skinny)
+and strong (for my weight).</p>
+
+<p>I used to run while at school.  A lot.  It was a tool used to build fitness for
+sports such as rowing and soccer.</p>
+
+<p>Though I am deeply grateful for the wide range of choices I had at school - both
+academically and on the sporting field, I really wish someone had taken the time
+to talk to some of us about, &#8220;form&#8221;.  Nobody really curated our running form.</p>
+
+<p>So, after a brief hiatus from running, I tried to return to it.  This was about
+15 years ago.  Every joint in my body ached after running, and I hated it.
+Nothing doing, not for me&#8230;</p>
+
+<p>In early 2012, I decided to try running again.  The motivation was to be able to
+exercise anywhere - since I tend to travel a lot for work.  While I have always
+been a keen cyclist, it&#8217;s not practical to go for a bike ride while travelling
+for work.  It is, logistically, relatively easy to go for a run.</p>
+
+<p>So, how does one avoid feeling so damn sore after a light run?</p>
+
+<p>I spoke to a mate of mine, read a lot and decided to try out the, &#8220;minimalist&#8221;
+style of running.  This doesn&#8217;t mean that I strapped on a loin cloth and ran
+barefoot chasing down my prey.</p>
+
+<p>It means finding a way of running with minimal impact, by learning to use one&#8217;s
+feet as opposed to using material props to shim, wedge, support and inherently
+weaken one&#8217;s feet.</p>
+
+<p>It means using a very lightweight, thin soled shoe which gives one a very clear
+sense of connectedness to the terrain, and zero heel rise.</p>
+
+<p>The thing about not having a thick gel/air/foam/blah layer under one&#8217;s heel is
+that you quickly learn to land on your forefoot, allowing your foot to do it&#8217;s
+intended job of acting as nature&#8217;s shock absorber.</p>
+
+<p>Years of using chunky orthotics, and hauling massive backpacks full of climbing
+gear over mountains has inflicted its toll.  Making such a big change was not
+going to be straight forward.</p>
+
+<p>My approach was one of extreme conservatism, and with an audacious/radical goal.</p>
+
+<p>Put the orthotics aside, with a view to finishing every run feeling like I had
+done no exercise whatsoever.  The latter point is to say that I did not want to
+feel strained or injured in any way.</p>
+
+<p>I went about it this way:</p>
+
+<ul>
+<li>two months of walking in these new shoes</li>
+<li>1 min of hopping barefoot on the spot every morning, adding a minute every few
+days</li>
+<li>5 minutes of running on the flat to start with</li>
+<li>a very gradual increase to about 20 minutes of running within 3 months</li>
+<li>stretching stretching stretching</li>
+<li>no room for ego, it was important to listen my body</li>
+</ul>
+
+
+<p>All was going well, until I started straining/pulling my calf muscles at about
+the 17 minute mark on every run I did.  For the unpracticed, landing on the
+forefoot puts a great deal of strain on the plantar fascia, achilles, and calf
+muscles.  This is why a really conservative approach is essential to allow your
+body to adapt to change.</p>
+
+<p>A local sports Doctor and excellent runner advised me to adopt the &#8220;mid foot
+strike&#8221; approach which implied continuing the use of the heel, but with far
+lower impact than the conventional heel thumping jogger.  This, coupled with
+neuro stretches for the sciatic nerve really helped.</p>
+
+<p>He also asked me to scale it all back to ten minutes of running only - no hills,
+just 10 minutes on the flat to focus on mid foot strike form.</p>
+
+<p>For me this suggested that the &#8220;minimalist&#8221; approach is merely trying
+to teach people to think about form.  There is nothing new or revolutionary
+about the form itself.  Runners have been doing it forever, and with
+whatever footwear they have or have not had access to.</p>
+
+<p>So far so good.  By the end of 2012, I was running for over an hour and had run
+in 6 countries as I travelled through for work or pleasure.  I have explored
+neighbourhoods, parks, hills, made friends and kept healthy by just chucking my
+gear into my bag and going for a run.</p>
+
+<p>Today, I played in the park with my 2 year old son, and he loves to run &#8230;
+really.  So we chased each other and ran until the little guy was wobbly, and I
+sat him on my shoulders as we walked home.  I&#8217;m really looking forward to
+running with him as he grows up. No major ambitions, just a sustainable thing to
+do &#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Map multiple commands in Vim]]></title>
     <link href="http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim/"/>
-    <updated>2011-12-27T19:20:00+13:00</updated>
+    <updated>2011-12-27T19:20:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/12/map-multiple-commands-in-vim</id>
     <content type="html"><![CDATA[<p>I&#8217;ve been learning a lot of new and subtle things about the Ruby language by
 working through Ruby Koans.  Things get a little tedious as you work through
@@ -38,7 +142,7 @@ command to write the file I am working with and run the above command.</p>
   <entry>
     <title type="html"><![CDATA[import not require]]></title>
     <link href="http://wasabhi.github.com/2011/12/import-not-require/"/>
-    <updated>2011-12-20T15:09:00+13:00</updated>
+    <updated>2011-12-20T15:09:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/12/import-not-require</id>
     <content type="html"><![CDATA[<p>Stumbled across something small but useful.  Writing rake files for a Ruby gem?
 Then consider arranging them using the following conventions:</p>
@@ -72,7 +176,7 @@ Then consider arranging them using the following conventions:</p>
   <entry>
     <title type="html"><![CDATA[Customised redirect after sign in with devise]]></title>
     <link href="http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/"/>
-    <updated>2011-12-15T22:44:00+13:00</updated>
+    <updated>2011-12-15T22:44:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise</id>
     <content type="html"><![CDATA[<p>Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours like, &#8220;Forgot Password?&#8221;.</p>
 
@@ -233,7 +337,7 @@ should redirect the user to a status_path.</p>
   <entry>
     <title type="html"><![CDATA[Two brilliant weeks on the road]]></title>
     <link href="http://wasabhi.github.com/2011/09/Two-Weeks-On-The-Road/"/>
-    <updated>2011-09-10T22:21:00+12:00</updated>
+    <updated>2011-09-10T22:21:00+10:00</updated>
     <id>http://wasabhi.github.com/2011/09/Two-Weeks-On-The-Road</id>
     <content type="html"><![CDATA[<p>I just finished a two week trip to the US, spending most of my time in Boulder Colorado, and San Francisco.</p>
 
@@ -260,7 +364,7 @@ should redirect the user to a status_path.</p>
   <entry>
     <title type="html"><![CDATA[Cherry picking commits with git]]></title>
     <link href="http://wasabhi.github.com/2011/02/GitCherryPicking/"/>
-    <updated>2011-02-09T22:17:00+13:00</updated>
+    <updated>2011-02-09T22:17:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/GitCherryPicking</id>
     <content type="html"><![CDATA[<p>Today, I spent a lot of time <a href="http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html">cherry picking</a> my way through a bunch of commits.</p>
 
@@ -339,7 +443,7 @@ git branch --track gem_name gem_name/master
   <entry>
     <title type="html"><![CDATA[Accountability]]></title>
     <link href="http://wasabhi.github.com/2011/02/Accountability/"/>
-    <updated>2011-02-07T22:15:00+13:00</updated>
+    <updated>2011-02-07T22:15:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Accountability</id>
     <content type="html"><![CDATA[<p>So what would you do?  You&#8217;re riding home to see your 4 month old son and your lovely wife, in traffic and doing all the right things - obeying all the rules.</p>
 
@@ -370,7 +474,7 @@ git branch --track gem_name gem_name/master
   <entry>
     <title type="html"><![CDATA[Technology Background: Agile web application development in an Enterprise environment]]></title>
     <link href="http://wasabhi.github.com/2011/02/Technology-Agile-Corporate/"/>
-    <updated>2011-02-06T21:38:00+13:00</updated>
+    <updated>2011-02-06T21:38:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Technology-Agile-Corporate</id>
     <content type="html"><![CDATA[<p>Continuing from my previous post about <a href="http://wasabhi.github.com/2011/01/Milestones/">agile development in the corporate context</a>, I will describe the technology we used to be able to rapidly deliver web applications.
 To deliver 50 web applications in a year we needed some basic structures in place:</p>
@@ -410,7 +514,7 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <entry>
     <title type="html"><![CDATA[Milestones]]></title>
     <link href="http://wasabhi.github.com/2011/02/Milestones/"/>
-    <updated>2011-02-06T21:37:00+13:00</updated>
+    <updated>2011-02-06T21:37:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Milestones</id>
     <content type="html"><![CDATA[<p>For the last three years, I worked for an Australian Telco - having been a founding member of a tiny team tasked with the delivery of short, sweet web apps that can be delivered quickly, and will resolve &#8220;low hanging fruit&#8221; business problems.  The team was created to rapidly respond to smaller business problems that were often overlooked, or subject to inappropriate costs as they were forced through a large project lifecycle.</p>
 
@@ -466,7 +570,7 @@ To deliver 50 web applications in a year we needed some basic structures in plac
   <entry>
     <title type="html"><![CDATA[Business Justification: Agile web application development in an Enterprise environment]]></title>
     <link href="http://wasabhi.github.com/2011/02/Agile-Corporate/"/>
-    <updated>2011-02-06T21:21:00+13:00</updated>
+    <updated>2011-02-06T21:21:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/02/Agile-Corporate</id>
     <content type="html"><![CDATA[<p>Continuing from my previous post about <a href="http://wasabhi.github.com/2011/01/Milestones/">agile development in the corporate context</a>, I will point out the ways in which the team was structured and backed financially - in the context of the goals that were set for us.</p>
 

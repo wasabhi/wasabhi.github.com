@@ -4,7 +4,7 @@
   <title><![CDATA[Category: devise | trajectory]]></title>
   <link href="http://wasabhi.github.com/blog/categories/devise/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2012-01-20T21:45:59+13:00</updated>
+  <updated>2013-01-01T23:04:58+11:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Customised redirect after sign in with devise]]></title>
     <link href="http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise/"/>
-    <updated>2011-12-15T22:44:00+13:00</updated>
+    <updated>2011-12-15T22:44:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/12/customised-redirect-after-sign-in-with-devise</id>
     <content type="html"><![CDATA[<p>Devise is a very popular Ruby gem used in Rails for authenticating access, and allowing Rails applications to quickly set up common access behaviours like, "Forgot Password?".</p>
 

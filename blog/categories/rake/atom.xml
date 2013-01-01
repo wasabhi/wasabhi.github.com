@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rake | trajectory]]></title>
   <link href="http://wasabhi.github.com/blog/categories/rake/atom.xml" rel="self"/>
   <link href="http://wasabhi.github.com/"/>
-  <updated>2012-01-20T21:45:59+13:00</updated>
+  <updated>2013-01-01T23:04:58+11:00</updated>
   <id>http://wasabhi.github.com/</id>
   <author>
     <name><![CDATA[Abhinav Keswani]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[import not require]]></title>
     <link href="http://wasabhi.github.com/2011/12/import-not-require/"/>
-    <updated>2011-12-20T15:09:00+13:00</updated>
+    <updated>2011-12-20T15:09:00+11:00</updated>
     <id>http://wasabhi.github.com/2011/12/import-not-require</id>
     <content type="html"><![CDATA[<p>Stumbled across something small but useful.  Writing rake files for a Ruby gem?
 Then consider arranging them using the following conventions:</p>
